@@ -1,0 +1,53 @@
+configuration {
+    show-icons: false;
+    font: "JetBrainsMono Nerd Font 24";
+}
+
+window {
+    width: 510px;
+    height: 110px;
+    location: center;
+    anchor: center;
+    border-radius: 999px;
+    border: 5px;
+    border-color: #006d5b;
+    background-color: #181825;
+    click-outside: true;
+}
+
+mainbox {
+    padding: 20px 32px;
+    background-color: transparent;
+    children: [ listview ];
+}
+
+listview {
+    columns: 1;
+    lines: 4;
+    spacing: 30px;
+    layout: horizontal;
+    fixed-height: false;
+    fixed-columns: false;
+    background-color: transparent;
+}
+
+element {
+    background-color: transparent;
+    text-color: #6c7086;
+    orientation: horizontal;
+    padding: 0px 20px;
+}
+
+element-text {
+    background-color: transparent;
+    text-color: inherit;
+    expand: true;
+    font: "JetBrainsMono Nerd Font 34";
+    horizontal-align: 0.5;
+    vertical-align: 0.5;
+}
+
+element selected {
+    background-color: transparent;
+    text-color: #006D5B;
+}

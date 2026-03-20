@@ -1,0 +1,40 @@
+{
+
+  "layer": "top",
+  "position": "top",
+  "height": 31,
+  "margin-top": 14,
+  "margin-bottom": -5,
+  "margin-left": 0,
+  "margin-right": 0,
+  "spacing": 0,
+  "gtk-layer-shell": true,
+
+  //LOAD MODULES
+  "include": ["/home/luckyarch/.config/waybar/modules.json"],
+
+  "modules-left": [
+    "cpu",
+    "memory",
+    "custom/temp",
+  ],
+
+
+  "modules-center": [
+    "niri/workspaces"
+  ],
+
+
+  "modules-right": [
+    "clock",
+    "custom/battery",
+    "network",
+    "bluetooth",
+    "pulseaudio",
+    "custom/brightness",
+    "custom/power",
+    "custom/notification",
+  ],
+
+
+}

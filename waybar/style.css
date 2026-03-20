@@ -1,0 +1,153 @@
+* {
+    font-family: "Symbols Nerd Font Mono", monospace;
+    font-size: 14px;
+}
+
+#waybar {
+    background: transparent;
+    box-shadow: none;
+    border: none;
+}
+
+#custom-notification {
+    padding: 6px 14px; /* space around icon */
+    margin-right: 8px; /* small gap from edge */
+    border-radius: 999px; /* pill */
+    background: rgba(15, 23, 42, 0.9); /* dark pill bg */
+    color: rgb(0, 109, 91); /* icon color */
+    border: 2px solid rgb(0, 109, 91);
+}
+
+#cpu {
+    padding: 6px 12px;
+    margin-left: 8px;
+    margin-right: 5px; /* top right bottom left → ONLY CPU gets left: 8px */
+    background: rgba(15, 23, 42, 0.9);
+    border-radius: 999px;
+    border: 2px solid rgba(0, 109, 91, 1);
+    color: rgb(0, 109, 91);
+    font-weight: bold;
+}
+
+#memory,
+#custom-temp {
+    padding: 6px 12px;
+    margin: 0 5px;
+    background: rgba(15, 23, 42, 0.9);
+    border-radius: 999px;
+    border: 2px solid rgba(0, 109, 91, 1);
+    color: rgb(0, 109, 91);
+    font-weight: bold;
+}
+
+#custom-power {
+    padding: 6px 12px;
+    margin: 0 10px;
+    background: rgba(15, 23, 42, 0.9);
+    border-radius: 999px;
+    border: 2px solid rgba(0, 109, 91, 1);
+    color: rgb(0, 109, 91);
+    font-weight: bold;
+}
+
+#custom-brightness {
+    padding: 6px 12px;
+    margin: 0 0px;
+    background: rgba(15, 23, 42, 0.9);
+    border-radius: 999px;
+    border: 2px solid rgba(0, 109, 91, 1);
+    color: rgb(0, 109, 91);
+    font-weight: bold;
+}
+
+#network {
+    padding: 6px 12px;
+    margin: 0 10px;
+    background: rgba(15, 23, 42, 0.9);
+    border-radius: 999px;
+    border: 2px solid rgba(0, 109, 91, 1);
+    color: rgb(0, 109, 91);
+    font-weight: bold;
+}
+
+#pulseaudio {
+    padding: 6px 12px;
+    margin: 0 10px;
+    background: rgba(15, 23, 42, 0.9);
+    border-radius: 999px;
+    border: 2px solid rgba(0, 109, 91, 1);
+    color: rgb(0, 109, 91);
+    font-weight: bold;
+}
+
+#bluetooth {
+    padding: 6px 12px;
+    margin: 0 0px;
+    background: rgba(15, 23, 42, 0.9);
+    border-radius: 999px;
+    border: 2px solid rgba(0, 109, 91, 1);
+    color: rgb(0, 109, 91);
+    font-weight: bold;
+}
+
+#custom-battery {
+    padding: 6px 12px;
+    margin: 0 0px;
+    background: rgba(15, 23, 42, 0.9);
+    border-radius: 999px;
+    border: 2px solid rgba(0, 109, 91, 1);
+    color: rgb(0, 109, 91);
+    font-weight: bold;
+}
+
+#clock {
+    padding: 6px 12px;
+    margin: 0 10px;
+    background: rgba(15, 23, 42, 0.9);
+    border-radius: 999px;
+    border: 2px solid rgba(0, 109, 91, 1);
+    color: rgb(0, 109, 91);
+    font-weight: bold;
+}
+
+/* Workspace pill */
+#workspaces {
+    background: rgba(15, 23, 42, 0.9);
+    padding: 6px 10px;
+    border-radius: 999px;
+    border: 2px solid rgba(0, 109, 91, 1);
+}
+
+/* Workspace dots */
+#workspaces button {
+    all: unset;
+    min-width: 12px;
+    min-height: 12px;
+    border-radius: 999px;
+    background: rgba(0, 109, 91, 0.3);
+    margin: 0 4px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Hover */
+#workspaces button:hover {
+    background: rgba(0, 109, 91, 0.6);
+}
+
+/* Active workspace - larger pill shape */
+#workspaces button.active {
+    min-width: 40px;
+    background: rgba(0, 109, 91, 1);
+    box-shadow: 0 0 8px rgba(0, 109, 91, 0.4);
+}
+
+#workspaces button.active label {
+    color: rgba(15, 23, 42, 1);
+    font-weight: 700;
+    font-size: 12px;
+}
+
+/* Hide numbers on inactive workspaces */
+#workspaces button:not(.active) label {
+    font-size: 0;
+}
