@@ -84,3 +84,4 @@ xorg-server
 xorg-xinit
 yay-debug
 zram-generator
+anifetch-cli
