@@ -16,6 +16,12 @@ environment {
     XCURSOR_SIZE "24"
 }
 
+gestures {
+  hot-corners {
+    off
+  }
+}
+
 input {
     keyboard {
         xkb {
@@ -41,14 +47,14 @@ input {
     touchpad {
         // off
         tap
-        // dwt
+        dwt
         // dwtp
         // drag false
         // drag-lock
         natural-scroll
         // accel-speed 0.2
         // accel-profile "flat"
-        // scroll-method "two-finger"
+        scroll-method "two-finger"
         // disabled-on-external-mouse
     }
 
@@ -95,7 +101,7 @@ input {
     // for the resolution.
     // If the mode is omitted altogether or is invalid, niri will pick one automatically.
     // Run `niri msg outputs` while inside a niri instance to list all outputs and their modes.
-    mode "1920x1080@120.030"
+    mode "1920x1080@144"
 
     // You can use integer or fractional scale, for example use 1.5 for 150% scale.
     scale 2
@@ -293,7 +299,7 @@ prefer-no-csd
 
 hotkey-overlay {
     // Uncomment this line to disable the "Important Hotkeys" pop-up at startup.
-    // skip-at-startup
+    skip-at-startup
 }
 
 // Uncomment this line to ask the clients to omit their client-side decorations if possible.
@@ -377,6 +383,7 @@ binds {
     Mod+L { spawn "/home/luckyarch/.config/rofi/powermenu.sh"; }
     Mod+M { spawn "/home/luckyarch/.config/hypr/toggle-mouse.sh"; }
     Mod+O repeat=false { toggle-overview; }
+    Mod+A { spawn "kitty" "--hold" "-e" "anifetch" "example.mp4"; }
 
     // Focus
     Mod+Left  { focus-column-left; }
@@ -411,6 +418,24 @@ binds {
     Mod+Shift+7 { move-column-to-workspace 7; }
     Mod+Shift+8 { move-column-to-workspace 8; }
     Mod+Shift+9 { move-column-to-workspace 9; }
+    Mod+KP_1 { focus-workspace 1; }
+    Mod+KP_2 { focus-workspace 2; }
+    Mod+KP_3 { focus-workspace 3; }
+    Mod+KP_4 { focus-workspace 4; }
+    Mod+KP_5 { focus-workspace 5; }
+    Mod+KP_6 { focus-workspace 6; }
+    Mod+KP_7 { focus-workspace 7; }
+    Mod+KP_8 { focus-workspace 8; }
+    Mod+KP_9 { focus-workspace 9; }
+    Mod+Shift+KP_1 { move-column-to-workspace 1; }
+    Mod+Shift+KP_2 { move-column-to-workspace 2; }
+    Mod+Shift+KP_3 { move-column-to-workspace 3; }
+    Mod+Shift+KP_4 { move-column-to-workspace 4; }
+    Mod+Shift+KP_5 { move-column-to-workspace 5; }
+    Mod+Shift+KP_6 { move-column-to-workspace 6; }
+    Mod+Shift+KP_7 { move-column-to-workspace 7; }
+    Mod+Shift+KP_8 { move-column-to-workspace 8; }
+    Mod+Shift+KP_9 { move-column-to-workspace 9; }
 
     // Mouse
     Mod+WheelScrollRight      { focus-column-right; }
@@ -422,10 +447,10 @@ binds {
     Mod+F { maximize-column; }
     Mod+Shift+F { fullscreen-window; }
     Mod+Ctrl+F { expand-column-to-available-width; }
-    Mod+Minus { set-column-width "-10%"; }
-    Mod+asterisk { set-column-width "+10%"; }
-    Mod+Shift+Minus { set-window-height "-10%"; }
-    Mod+Shift+asterisk { set-window-height "+10%"; }
+    Mod+KP_Subtract { set-column-width "-10%"; }
+    Mod+KP_Multiply { set-window-width "+10%"; }
+    Mod+Shift+KP_Subtract { set-window-height "-10%"; }
+    Mod+Shift+KP_Multiply { set-window-height "+10%"; }
     Mod+Shift+R { reset-window-height; }
     Mod+Ctrl+R { spawn "/home/luckyarch/.config/hypr/reload-ui.sh"; }
 
@@ -460,8 +485,8 @@ binds {
     XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "-e4" "-n2" "set" "5%-"; }
 
     // Session
-    Mod+Shift+E { quit; }
+    Mod+Shift+E { quit skip-confirmation=true; }
     Mod+Shift+P { power-off-monitors; }
     Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
-    Ctrl+Alt+Delete { quit; }
+    Ctrl+Alt+Delete { quit skip-confirmation=true; }
 }
