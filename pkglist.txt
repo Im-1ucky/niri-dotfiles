@@ -85,3 +85,5 @@ xorg-xinit
 yay-debug
 zram-generator
 anifetch-cli
+chafa
+ffmpeg
