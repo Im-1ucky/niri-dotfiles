@@ -2,7 +2,7 @@ enable_remote_control yes
 # vim:fileencoding=utf-8:foldmethod=marker
 
 # BEGIN_KITTY_THEME
-# Arthur
+# GitHub Dark
 include current-theme.conf
 # END_KITTY_THEME
 
@@ -272,6 +272,7 @@ font_size 17.0
 #: }}}
 
 #: Text cursor customization {{{
+
 cursor #006d5b
 
 #: Default text cursor color. If set to the special value none the
@@ -378,6 +379,7 @@ cursor_trail_decay 0.02 0.8
 #: number of cells the cursor must move before the trail is started.
 #: When the cursor moves less than this threshold, the trail is
 #: skipped, reducing unnecessary cursor trail animation.
+
 cursor_trail_color #006d5b
 
 #: Set the color of the cursor trail when cursor_trail is enabled. If
@@ -1078,7 +1080,7 @@ enable_audio_bell no
 #: start_resizing_window. The cells value is used for horizontal
 #: resizing, and the lines value is used for vertical resizing.
 
-window_border_width 2
+# window_border_width 0.5pt
 
 #: The width of window borders. Can be either in pixels (px) or pts
 #: (pt). Values in pts will be rounded to the nearest number of pixels
@@ -1108,7 +1110,7 @@ window_border_width 2
 #: set the vertical and horizontal sides. Three values set top,
 #: horizontal and bottom. Four values set top, right, bottom and left.
 
-window_padding_width -5 10
+# window_padding_width 0
 
 #: The window padding (in pts) (blank area between the text and the
 #: window border). A single value sets all four sides. Two values set
@@ -1133,10 +1135,11 @@ window_padding_width -5 10
 #: only at the bottom and right edges. The value can be one of: top-
 #: left, top, top-right, left, center, right, bottom-left, bottom,
 #: bottom-right.
-active_border_color #006d5b
+active_border_color #6200EA
 
 #: The color for the border of the active window. Set this to none to
 #: not draw borders around the active window.
+
 inactive_border_color #1f2428
 
 #: The color for the border of inactive windows.
@@ -1453,7 +1456,7 @@ active_tab_border_color #BD93F9
 
 #: The foreground and background colors.
 
-background_opacity 0.95
+background_opacity 1
 
 #: The opacity of the background. A number between zero and one, where
 #: one is opaque and zero is fully transparent. This will only work if
@@ -1572,8 +1575,9 @@ background_blur 0
 
 #: How much to dim text that has the DIM/FAINT attribute set. One
 #: means no dimming and zero means fully dimmed (i.e. invisible).
-selection_background #5f514e
-selection_foreground #f2eae4
+
+selection_foreground #0b0f0f
+selection_background #353543
 
 #: The foreground and background colors for text selected with the
 #: mouse. Setting both of these to none will cause a "reverse video"
@@ -2847,19 +2851,6 @@ selection_foreground #f2eae4
 
 # map kitty_mod+f5 load_config_file
 # map ctrl+cmd+,   load_config_file
-map ctrl+k reload_config
-map ctrl+q close_window
-# Create splits
-map ctrl+up launch --location=hsplit
-map ctrl+down launch --location=hsplit
-map ctrl+left launch --location=vsplit
-map ctrl+right launch --location=vsplit
-
-# Focus splits
-map ctrl+shift+up neighboring_window up
-map ctrl+shift+down neighboring_window down
-map ctrl+shift+left neighboring_window left
-map ctrl+shift+right neighboring_window right
 
 #::  Reload kitty.conf, applying any changes since the last time it
 #::  was loaded. Note that a handful of options cannot be dynamically

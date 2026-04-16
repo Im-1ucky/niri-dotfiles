@@ -14,6 +14,8 @@ cursor {
 environment {
     XCURSOR_THEME "Bibata-Modern-Ice"
     XCURSOR_SIZE "24"
+    GTK_THEME "Adwaita-dark"
+    ADW_DISABLE_PORTAL "1"
 }
 
 gestures {
@@ -132,7 +134,7 @@ layer-rule {
 // https://yalter.github.io/niri/Configuration:-Layout
 layout {
     // Set gaps around windows in logical pixels.
-    gaps 16
+    gaps 14
 
     // When to center a column when changing focus, options are:
     // - "never", default behavior, focusing an off-screen column will keep at the left
@@ -219,7 +221,7 @@ layout {
         // If you enable the border, you probably want to disable the focus ring.
         off
 
-        width 4
+        width 3
         active-color "#ffc87f"
         inactive-color "#505050"
 
@@ -291,8 +293,11 @@ layout {
 
 // This line starts waybar, a commonly used bar for Wayland compositors.
 spawn-at-startup "waybar"
-spawn-at-startup "swaybg" "-m" "fill" "-i" "/home/luckyarch/Photos/Wallpapers/815043.png"
+spawn-at-startup "swaybg" "-m" "fill" "-i" "/home/luckyarch/Photos/Wallpapers/root.png"
 prefer-no-csd
+spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "color-scheme" "prefer-dark"
+spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "gtk-theme" "Adwaita-dark"
+spawn-at-startup "~/.config/swayidle/run.sh"
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
@@ -366,7 +371,7 @@ window-rule {
 // Example: enable rounded corners for all windows.
 // (This example rule is commented out with a "/-" in front.)
 window-rule {
-    geometry-corner-radius 12
+    geometry-corner-radius 10
     clip-to-geometry true
 }
 
@@ -377,7 +382,7 @@ binds {
     Mod+Q { spawn "kitty"; }
     Mod+C { close-window; }
     Mod+R { spawn "rofi" "-show" "drun"; }
-    Mod+D { spawn "dolphin"; }
+    Mod+D { spawn "nemo"; }
     Mod+T { toggle-window-floating; }
     Mod+V { spawn "/home/luckyarch/.local/bin/cliphist-rofi"; }
     Mod+L { spawn "/home/luckyarch/.config/rofi/powermenu.sh"; }
@@ -451,8 +456,8 @@ binds {
     Mod+KP_Multiply { set-window-width "+10%"; }
     Mod+Shift+KP_Subtract { set-window-height "-10%"; }
     Mod+Shift+KP_Multiply { set-window-height "+10%"; }
-    Mod+Shift+R { reset-window-height; }
-    Mod+Ctrl+R { spawn "/home/luckyarch/.config/hypr/reload-ui.sh"; }
+    Mod+Ctrl+R { reset-window-height; }
+    Mod+Shift+R { spawn "/home/luckyarch/.config/hypr/reload-ui.sh"; }
 
     // Floating
     Mod+Shift+V { switch-focus-between-floating-and-tiling; }

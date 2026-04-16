@@ -1,0 +1,44 @@
+# ghostty config — Im-1ucky
+# mirrors kitty setup
+
+theme = Arthur
+resize-overlay = never
+
+font-family = FreeMono Nerd Font
+font-size = 18
+
+cursor-color = #006d5b
+cursor-style = block
+cursor-invert-fg-bg = false
+
+background-opacity = 0.95
+background-blur = true
+background-blur-radius = 15
+
+# Increase the space between the text and the window edges
+window-padding-x = 5
+window-padding-y = 0
+
+# Optional: If you want the padding to be even regardless of cell size
+window-padding-balance = true
+
+selection-foreground = #0b0f0f
+selection-background = #353543
+
+window-colorspace = srgb
+
+#KeyBinds
+keybind = ctrl+r=reload_config
+keybind = ctrl+q=close_surface
+keybind = ctrl+up=new_split:up
+keybind = ctrl+down=new_split:down
+keybind = ctrl+left=new_split:left
+keybind = ctrl+right=new_split:right
+# Switch focus between splits
+keybind = ctrl+shift+up=goto_split:up
+keybind = ctrl+shift+down=goto_split:bottom
+keybind = ctrl+shift+left=goto_split:left
+keybind = ctrl+shift+right=goto_split:right
+
+#Notifictaions
+confirm-close-surface = false
