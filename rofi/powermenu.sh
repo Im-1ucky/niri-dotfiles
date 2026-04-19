@@ -13,27 +13,31 @@ choice="$(printf "%b" "$options" | rofi -dmenu \
 
 case "$choice" in
   "$lock")
-    if command -v hyprlock >/dev/null 2>&1; then
-      hyprlock
-    elif command -v swaylock >/dev/null 2>&1; then
-      swaylock
+    if [ -x "$HOME/.config/swaylock/lock.sh" ]; then
+      "$HOME/.config/swaylock/lock.sh"
     else
-      notify-send "Lockscreen not available" "Install hyprlock or swaylock to use the lock option."
+      notify-send "Lockscreen not available"
     fi
     ;;
+
   "$reboot")
     systemctl reboot
     ;;
+
   "$shutdown")
     systemctl poweroff
     ;;
+
   "$logout")
-    if command -v hyprctl >/dev/null 2>&1 && hyprctl version >/dev/null 2>&1; then
+    if [ -n "$HYPRLAND_INSTANCE_SIGNATURE" ]; then
       hyprctl dispatch exit
+    elif [ -n "$NIRI_SOCKET" ]; then
+      niri msg quit
     else
-      niri msg action quit
+      notify-send "Unknown compositor"
     fi
     ;;
+
   *)
     exit 0
     ;;

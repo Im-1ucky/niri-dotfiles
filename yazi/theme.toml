@@ -1,0 +1,6 @@
+[flavor]
+dark = "catppuccin-mocha"
+
+# Only add the stuff below if you want to OVERRIDE the theme
+[manager]
+cwd = { fg = "#00FF00", bold = true }

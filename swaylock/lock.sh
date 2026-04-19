@@ -23,3 +23,9 @@ swaylock \
   --ring-wrong-color ff4444 \
   --inside-wrong-color ff4444 \
   --line-wrong-color ff4444
+
+
+# THIS RUNS AFTER UNLOCK
+~/.config/swaylock/brightness.sh restore
+powerprofilesctl set balanced
+niri msg action power-on-monitors

@@ -111,8 +111,7 @@
   "clock": {
     "interval": 1,
     "format": "{:%H:%M | %a %d %b}",
-    "tooltip": false,
-    "on-click": "/home/luckyarch/.config/waybar/scripts/calendar.sh"
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
   },
 
   "niri/workspaces": {
