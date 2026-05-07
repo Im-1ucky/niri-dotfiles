@@ -1,0 +1,7 @@
+bibata-cursor-theme-bin
+opencode-bin
+paru
+paru-debug
+swaylock-effects
+yay-debug
+zen-browser-bin

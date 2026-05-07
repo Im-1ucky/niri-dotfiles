@@ -496,9 +496,9 @@ binds {
     Mod+Ctrl+C { center-visible-columns; }
 
     // Screenshots
-    Mod+Print       { spawn "sh" "-c" "grim /home/luckyarch/Photos/Screenshots/Screenshot-$(date +%F-%H%M%S).png"; }
-    Mod+Shift+Print { spawn "sh" "-c" "grim -g \"$(slurp)\" /home/luckyarch/Photos/Screenshots/Screenshot-$(date +%F-%H%M%S).png"; }
-    Mod+Ctrl+Print  { spawn "sh" "-c" "grim -g \"$(slurp)\" - | swappy -f -"; }
+    Mod+Print { spawn "sh" "-c" "grim - | wl-copy"; }
+    Mod+Shift+Print { spawn "sh" "-c" "grim -g \"$(slurp)\" - | wl-copy"; }
+    Mod+Ctrl+Print { spawn "sh" "-c" "FILE=/home/luckyarch/Photos/Screenshots/Screenshot-$(date +%F-%H%M%S).png && grim -g \"$(slurp)\" \"$FILE\" && wl-copy < \"$FILE\""; }
 
     // Audio
     XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+ -l 1.0"; }

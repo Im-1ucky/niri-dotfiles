@@ -9,7 +9,6 @@ bleachbit
 blueman
 bluez
 bluez-utils
-brave-bin
 brightnessctl
 btop
 chafa
@@ -29,6 +28,7 @@ gparted
 greetd
 greetd-tuigreet
 grim
+grub
 hyprland
 imagemagick
 intel-ucode
@@ -61,12 +61,15 @@ nvidia-open-dkms
 nvme-cli
 nwg-look
 obsidian
+opencode-bin
+os-prober
 pamixer
 paru
 paru-debug
 pavucontrol
 pipewire-alsa
 pipewire-pulse
+plymouth
 polkit-kde-agent
 postgresql
 power-profiles-daemon
@@ -74,6 +77,8 @@ python-pip
 python-pipx
 qt5-wayland
 qt6-wayland
+reflector
+ripgrep
 rofi
 slurp
 smartmontools
@@ -86,10 +91,12 @@ swaylock-effects
 swaync
 termdown
 terminus-font
+tree
 tree-sitter-cli
 ttf-nerd-fonts-symbols-mono
 unzip
 uwsm
+vivid
 vulkan-intel
 vulkan-tools
 waybar

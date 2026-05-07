@@ -32,7 +32,7 @@ case "$choice" in
     if [ -n "$HYPRLAND_INSTANCE_SIGNATURE" ]; then
       hyprctl dispatch exit
     elif [ -n "$NIRI_SOCKET" ]; then
-      niri msg quit
+      niri msg action quit --skip-confirmation
     else
       notify-send "Unknown compositor"
     fi
