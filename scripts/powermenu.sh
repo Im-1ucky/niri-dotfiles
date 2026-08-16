@@ -5,7 +5,7 @@ reboot=""
 shutdown=""
 logout="󰍃"
 
-options="$lock\n$reboot\n$shutdown\n$logout"
+options="$shutdown\n$reboot\n$lock\n$logout"
 
 choice="$(printf "%b" "$options" | rofi -dmenu \
   -p "Power" \
