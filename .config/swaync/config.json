@@ -73,36 +73,35 @@
       "button-text": " 󰧧 "
     },
     "buttons-grid": {
-      "actions": [
+       "actions": [
         {
-          "label": "",
-          "type": "toggle",
-          "active": true,
-          "command": "sh -c '[[ $SWAYNC_TOGGLE_STATE == true ]] && nmcli radio wifi on || nmcli radio wifi off'",
-          "update-command": "sh -c '[[ $(nmcli r wifi) == \"enabled\" ]] && echo true || echo false'"
-        },
-        {
-          "label": "󰂯",
-          "type": "toggle",
-          "active": true,
-          "command": "sh -c '[[ $SWAYNC_TOGGLE_STATE == true ]] && rfkill unblock bluetooth || rfkill block bluetooth'",
-          "update-command": "sh -c \"rfkill list bluetooth | grep -q \"Soft blocked: no\" && echo true || echo false\""
-        },
-        {
-          "label": "",
-          "type": "toggle",
-          "active": false,
-          "command": "sh -c '[[ $SWAYNC_TOGGLE_STATE == true ]] && pactl set-source-mute @DEFAULT_SOURCE@ 1 || pactl set-source-mute @DEFAULT_SOURCE@ 0'",
-          "update-command": "sh -c '[[ $(pactl get-source-mute @DEFAULT_SOURCE@) == *yes* ]] && echo true || echo false'"
-        },
-        {
-          "label": "",
-          "type": "toggle",
-          "active": false,
-          "command": "sh -c '[[ $SWAYNC_TOGGLE_STATE == true ]] && nmcli connection up luckyarcH || nmcli connection down luckyarcH'",
-          "update-command": "sh -c 'nmcli -t -f NAME,DEVICE connection show --active | grep -q \"^luckyarcH:\" && echo true || echo false'"
-        }
-      ]
-    }
+    "label": "",
+    "type": "toggle",
+    "active": true,
+    "command": "sh -c '[[ $SWAYNC_TOGGLE_STATE == true ]] && nmcli radio wifi on || nmcli radio wifi off'",
+    "update-command": "sh -c '[[ $(nmcli r wifi) == \"enabled\" ]] && echo true || echo false'"
+  },
+  {
+    "label": "󰂯",
+    "type": "toggle",
+    "active": true,
+    "command": "sh -c '[[ $SWAYNC_TOGGLE_STATE == true ]] && bluetoothctl power on || bluetoothctl power off'",
+    "update-command": "sh -c 'bluetoothctl show | grep -q \"Powered: yes\" && echo true || echo false'"
+  },
+  {
+    "label": "",
+    "type": "toggle",
+    "active": false,
+    "command": "sh -c '[[ $SWAYNC_TOGGLE_STATE == true ]] && nmcli connection up luckyarcH || nmcli connection down luckyarcH'",
+    "update-command": "sh -c 'nmcli -t -f NAME,DEVICE connection show --active | grep -q \"^luckyarcH:\" && echo true || echo false'"
+  },
+  {
+    "label": "",
+    "type": "toggle",
+    "active": false,
+    "command": "sh -c 'if [[ $SWAYNC_TOGGLE_STATE == true ]]; then pactl set-source-mute @DEFAULT_SOURCE@ 1; sudo -n /usr/local/bin/toggle-webcam off; else pactl set-source-mute @DEFAULT_SOURCE@ 0; sudo -n /usr/local/bin/toggle-webcam on; fi'",
+    "update-command": "sh -c '[[ $(pactl get-source-mute @DEFAULT_SOURCE@) == *yes* ]] && echo true || echo false'"
+  }
+]   }
   }
 }

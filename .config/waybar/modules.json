@@ -21,7 +21,7 @@
     "interval": 5,
     "format": "C {usage}%",
     "max-length": 5,
-    "on-click": "missioncenter"
+    "on-click": "kitty --start-as=maximized btop"
   },
 
   "memory": {
@@ -68,7 +68,7 @@
     "format-disconnected": "󰖪",
     "format-disconnected-tooltip": "Network Disconnected",
     "tooltip": true,
-    "on-click": "nm-connection-editor",
+    "on-click": "kitty nmtui",
     "max-length": 10
   },
 
@@ -93,11 +93,13 @@
     "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -5%"
   },
 
-  "bluetooth": {
-    "interval": 1,
-    "format": "󰂯",
-    "tooltip": false,
-    "on-click": "blueman-manager"
+  "custom/caffeine": {
+    "exec": "~/.config/waybar/scripts/caffeine.sh",
+    "interval": 2,
+    "return-type": "json",
+    "format": "{}",
+    "tooltip": true,
+    "on-click": "~/.config/waybar/scripts/caffeine.sh toggle"
   },
 
   "custom/battery": {

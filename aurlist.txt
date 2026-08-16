@@ -1,4 +1,7 @@
+android-sdk-cmdline-tools-latest
 bibata-cursor-theme-bin
+flutter-bin
+jetbrains-toolbox
 opencode-bin
 paru
 paru-debug

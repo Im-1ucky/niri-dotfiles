@@ -29,7 +29,7 @@
     "clock",
     "custom/battery",
     "network",
-    "bluetooth",
+    "custom/caffeine",
     "pulseaudio",
     "custom/brightness",
     "custom/power",
