@@ -16,7 +16,7 @@ sleep 1
 waybar >/dev/null 2>&1 &
 swaync >/dev/null 2>&1 &
 kitty >/dev/null 2>&1 &
-swayidle >/dev/null 2>&1 &
+~/.config/scripts/run.sh >/dev/null 2>&1 &
 
 # Relaunch wallpaper
 swaybg -i "/home/luckyarch/Photos/Wallpapers/root.png" -m fill >/dev/null 2>&1 &

@@ -1,6 +1,5 @@
 #!/bin/bash
-
-swaylock \
+swaylock -f \
   --screenshots \
   --indicator \
   --indicator-radius 100 \
@@ -22,15 +21,4 @@ swaylock \
   --text-wrong-color 00000000 \
   --ring-wrong-color ff4444 \
   --inside-wrong-color ff4444 \
-  --line-wrong-color ff4444 &
-
-LOCKPID=$!
-
-sleep 60
-
-if kill -0 $LOCKPID 2>/dev/null; then
-  niri msg action power-off-monitors
-fi
-
-wait $LOCKPID
-"$HOME/.config/scripts/dim-brightness.sh" restore
+  --line-wrong-color ff4444
