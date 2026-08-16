@@ -29,8 +29,8 @@ LOCKPID=$!
 sleep 60
 
 if kill -0 $LOCKPID 2>/dev/null; then
-    niri msg action power-off-monitors
+  niri msg action power-off-monitors
 fi
 
 wait $LOCKPID
-"$HOME/.config/swaylock/brightness.sh" restore
+"$HOME/.config/scripts/dim-brightness.sh" restore

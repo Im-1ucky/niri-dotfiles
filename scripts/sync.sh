@@ -20,18 +20,18 @@ cp -r ~/.config/gtk-4.0 "$REPO/.config/"
 cp -r ~/.config/hypr "$REPO/.config/"
 cp -r ~/.config/kitty "$REPO/.config/"
 cp -r ~/.config/Kvantum "$REPO/.config/"
-cp -r ~/.config/nemo "$REPO/.config/"
 cp -r ~/.config/niri "$REPO/.config/"
 cp -r ~/.config/nvim "$REPO/.config/"
 cp -r ~/.config/nwg-look "$REPO/.config/"
 cp -r ~/.config/qt5ct "$REPO/.config/"
 cp -r ~/.config/rofi "$REPO/.config/"
-cp -r ~/.config/sway "$REPO/.config/"
-cp -r ~/.config/swayidle "$REPO/.config/"
-cp -r ~/.config/swaylock "$REPO/.config/"
 cp -r ~/.config/swaync "$REPO/.config/"
 cp -r ~/.config/waybar "$REPO/.config/"
 cp -r ~/.config/yazi "$REPO/.config/"
+
+mkdir -p "$REPO/scripts"
+find ~/.config/scripts -maxdepth 1 -type f -name "*.sh" ! -name "sync.sh" \
+  -exec cp {} "$REPO/scripts/" \;
 
 # -----------------------
 # Root config files

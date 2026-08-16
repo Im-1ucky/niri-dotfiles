@@ -298,7 +298,7 @@ spawn-at-startup "swaybg" "-m" "fill" "-i" "/home/luckyarch/Photos/Wallpapers/ro
 prefer-no-csd
 spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "color-scheme" "prefer-dark"
 spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "gtk-theme" "Adwaita-dark"
-spawn-at-startup "sh" "-c" "/home/luckyarch/.config/swayidle/run.sh"
+spawn-at-startup "sh" "-c" "/home/luckyarch/.config/scripts/run.sh"
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
@@ -404,8 +404,7 @@ binds {
     Mod+D { spawn "nemo"; }
     Mod+T { toggle-window-floating; }
     Mod+V { spawn "/home/luckyarch/.local/bin/cliphist-rofi"; }
-    Mod+P { spawn "/home/luckyarch/.config/rofi/powermenu.sh"; }
-    Mod+M { spawn "/home/luckyarch/.config/hypr/toggle-mouse.sh"; }
+    Mod+P { spawn "/home/luckyarch/.config/scripts/powermenu.sh"; }
     Mod+O repeat=false { toggle-overview; }
     Mod+A { spawn "kitty" "--hold" "-e" "anifetch" "example.mp4"; }
     Mod+B { spawn "zen-browser"; }
@@ -494,7 +493,7 @@ binds {
     Mod+Shift+KP_Subtract { set-window-height "-10%"; }
     Mod+Shift+KP_Multiply { set-window-height "+10%"; }
     Mod+Ctrl+R { reset-window-height; }
-    Mod+Shift+R { spawn "/home/luckyarch/.config/hypr/reload-ui.sh"; }
+    Mod+Shift+R { spawn "/home/luckyarch/.config/scripts/reload-ui.sh"; }
 
     // Floating
     Mod+Shift+V { switch-focus-between-floating-and-tiling; }

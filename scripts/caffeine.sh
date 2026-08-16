@@ -4,7 +4,7 @@ if [[ "$1" == "toggle" ]]; then
   if pgrep -x swayidle >/dev/null; then
     pkill -x swayidle
   else
-    ~/.config/swayidle/run.sh &
+    ~/.config/scripts/run.sh &
   fi
 fi
 
