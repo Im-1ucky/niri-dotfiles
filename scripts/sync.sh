@@ -45,7 +45,11 @@ cp ~/.config/dolphinrc "$REPO/" 2>/dev/null || true
 # Package lists
 # -----------------------
 
+echo "Updating package lists..."
+
 pacman -Qqe >"$REPO/pkglist.txt"
 pacman -Qqem >"$REPO/aurlist.txt"
+
+echo "Package lists updated."
 
 echo "Sync complete."
