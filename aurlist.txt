@@ -1,5 +1,6 @@
 android-sdk-cmdline-tools-latest
 bibata-cursor-theme-bin
+bluetuith
 flutter-bin
 jetbrains-toolbox
 opencode-bin

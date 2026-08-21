@@ -9,7 +9,7 @@ base-devel
 bibata-cursor-theme-bin
 bleachbit
 blender
-blueman
+bluetuith
 bluez
 bluez-utils
 brightnessctl

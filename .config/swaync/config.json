@@ -85,8 +85,8 @@
     "label": "󰂯",
     "type": "toggle",
     "active": true,
-    "command": "sh -c '[[ $SWAYNC_TOGGLE_STATE == true ]] && bluetoothctl power on || bluetoothctl power off'",
-    "update-command": "sh -c 'bluetoothctl show | grep -q \"Powered: yes\" && echo true || echo false'"
+    "command": "bluetoothctl power $([[ $SWAYNC_TOGGLE_STATE == true ]] && echo on || echo off)",
+    "update-command": "bluetoothctl show | grep -q 'Powered: yes' && echo true || echo false"
   },
   {
     "label": "",
