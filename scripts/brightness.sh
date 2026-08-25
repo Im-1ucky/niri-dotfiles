@@ -1,11 +1,13 @@
 #!/usr/bin/env bash
 
+source ~/.config/theme/apps.sh
+
 current=$(brightnessctl get)
 max=$(brightnessctl max)
-percent=$(( current * 100 / max ))
+percent=$((current * 100 / max))
 
-new_percent=$(printf "" | rofi -dmenu -slider -p "Brightness: $percent%" -width 300)
+new_percent=$(printf "" | "$MENU" -dmenu -slider -p "Brightness: $percent%" -width 300)
 
 if [[ "$new_percent" =~ ^[0-9]+$ ]]; then
-    brightnessctl set "${new_percent}%"
+  brightnessctl set "${new_percent}%"
 fi

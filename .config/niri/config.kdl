@@ -192,12 +192,14 @@ layout {
         // - CSS-like notation: "rgb(255, 127, 0)", rgba(), hsl() and a few others.
 
         // Color of the ring on the active monitor.
-        active-color "#006D5B"
 
         // Color of the ring on inactive monitors.
         //
         // The focus ring only draws around the active window, so the only place
         // where you can see its inactive-color is on other monitors.
+
+
+        //active-color "#006D5B"
         inactive-color "#353543"
 
         // You can also use gradients. They take precedence over solid colors.
@@ -531,3 +533,4 @@ binds {
     Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
     Ctrl+Alt+Delete { quit skip-confirmation=true; }
 }
+include "/home/luckyarch/.config/theme/generated/niri.kdl"

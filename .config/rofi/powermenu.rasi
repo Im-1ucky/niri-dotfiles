@@ -3,6 +3,8 @@ configuration {
     font: "JetBrainsMono Nerd Font 24";
 }
 
+@import "/home/luckyarch/.config/theme/generated/powermenu.rasi"
+
 window {
     width: 510px;
     height: 110px;
@@ -10,7 +12,7 @@ window {
     anchor: center;
     border-radius: 999px;
     border: 5px;
-    border-color: #006d5b;
+    border-color: var(primary);
     background-color: #181825;
     click-outside: true;
 }
@@ -49,5 +51,5 @@ element-text {
 
 element selected {
     background-color: transparent;
-    text-color: #006D5B;
+    text-color: var(primary);
 }

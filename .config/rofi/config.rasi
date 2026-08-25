@@ -1,3 +1,5 @@
+@import "/home/luckyarch/.config/theme/generated/rofi.rasi"
+
 /*****----- Configuration -----*****/
 configuration {
     modi:                       "drun,run,filebrowser,window";
@@ -10,14 +12,16 @@ configuration {
     window-format:              "{w} · {c} · {t}";
 }
 
-/*****----- Base Colors & Font (inlined instead of imports) -----*****/
+/*****----- Base Colors & Font -----*****/
 * {
-    /* Base palette (no more yellow) */
     background:        #0f0f0f;
     background-alt:    #1a1a1a;
     foreground:        #cdd6f4;
-    selected:          #006d5b;
-    active:            #006d5b;
+
+    selected: var(primary);
+    active: var(primary);
+
+    /* Urgent elements */
     urgent:            #f38ba8;
 
     font: "JetBrainsMono Nerd Font 11";
@@ -42,7 +46,7 @@ configuration {
     selected-urgent-foreground:  var(background);
     selected-active-background:  var(urgent);
     selected-active-foreground:  var(background);
-    alternate-normal-background: var(background);      /* no stripes */
+    alternate-normal-background: var(background);
     alternate-normal-foreground: var(foreground);
     alternate-urgent-background: var(urgent);
     alternate-urgent-foreground: var(background);
@@ -102,6 +106,7 @@ prompt {
     background-color:            inherit;
     text-color:                  inherit;
 }
+
 textbox-prompt-colon {
     enabled:                     true;
     padding:                     5px 0px;
@@ -110,6 +115,7 @@ textbox-prompt-colon {
     background-color:            inherit;
     text-color:                  inherit;
 }
+
 entry {
     enabled:                     true;
     padding:                     5px 0px;
@@ -119,12 +125,14 @@ entry {
     placeholder:                 "Search...";
     placeholder-color:           inherit;
 }
+
 num-filtered-rows {
     enabled:                     true;
     expand:                      false;
     background-color:            inherit;
     text-color:                  inherit;
 }
+
 textbox-num-sep {
     enabled:                     true;
     expand:                      false;
@@ -132,12 +140,14 @@ textbox-num-sep {
     background-color:            inherit;
     text-color:                  inherit;
 }
+
 num-rows {
     enabled:                     true;
     expand:                      false;
     background-color:            inherit;
     text-color:                  inherit;
 }
+
 case-indicator {
     enabled:                     true;
     background-color:            inherit;
@@ -167,8 +177,9 @@ listview {
     text-color:                  @foreground-colour;
     cursor:                      "default";
 }
+
 scrollbar {
-    handle-width:                5px ;
+    handle-width:                5px;
     handle-color:                @handle-colour;
     border-radius:               10px;
     background-color:            @alternate-background;
@@ -187,48 +198,59 @@ element {
     text-color:                  @foreground-colour;
     cursor:                      pointer;
 }
+
 element normal.normal {
     background-color:            var(normal-background);
     text-color:                  var(normal-foreground);
 }
+
 element normal.urgent {
     background-color:            var(urgent-background);
     text-color:                  var(urgent-foreground);
 }
+
 element normal.active {
     background-color:            var(active-background);
     text-color:                  var(active-foreground);
 }
+
 element selected.normal {
     background-color:            var(selected-normal-background);
     text-color:                  var(selected-normal-foreground);
 }
+
 element selected.urgent {
     background-color:            var(selected-urgent-background);
     text-color:                  var(selected-urgent-foreground);
 }
+
 element selected.active {
     background-color:            var(selected-active-background);
     text-color:                  var(selected-active-foreground);
 }
+
 element alternate.normal {
     background-color:            var(alternate-normal-background);
     text-color:                  var(alternate-normal-foreground);
 }
+
 element alternate.urgent {
     background-color:            var(alternate-urgent-background);
     text-color:                  var(alternate-urgent-foreground);
 }
+
 element alternate.active {
     background-color:            var(alternate-active-background);
     text-color:                  var(alternate-active-foreground);
 }
+
 element-icon {
     background-color:            transparent;
     text-color:                  inherit;
     size:                        24px;
     cursor:                      inherit;
 }
+
 element-text {
     background-color:            transparent;
     text-color:                  inherit;
@@ -239,7 +261,7 @@ element-text {
 }
 
 /*****----- Mode Switcher -----*****/
-mode-switcher{
+mode-switcher {
     enabled:                     true;
     spacing:                     10px;
     margin:                      0px;
@@ -250,6 +272,7 @@ mode-switcher{
     background-color:            transparent;
     text-color:                  @foreground-colour;
 }
+
 button {
     padding:                     5px 10px;
     border:                      0px solid;
@@ -259,6 +282,7 @@ button {
     text-color:                  inherit;
     cursor:                      pointer;
 }
+
 button selected {
     background-color:            var(selected-normal-background);
     text-color:                  var(selected-normal-foreground);
@@ -275,6 +299,7 @@ message {
     background-color:            transparent;
     text-color:                  @foreground-colour;
 }
+
 textbox {
     padding:                     8px 10px;
     border:                      0px solid;
@@ -289,6 +314,7 @@ textbox {
     blink:                       true;
     markup:                      true;
 }
+
 error-message {
     padding:                     10px;
     border:                      2px solid;

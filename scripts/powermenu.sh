@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+source ~/.config/theme/apps.sh
+
 lock=""
 reboot=""
 shutdown=""
@@ -7,7 +9,7 @@ logout="󰍃"
 
 options="$shutdown\n$reboot\n$lock\n$logout"
 
-choice="$(printf "%b" "$options" | rofi -dmenu \
+choice="$(printf "%b" "$options" | "$MENU" -dmenu \
   -p "Power" \
   -theme ~/.config/rofi/powermenu.rasi)"
 
