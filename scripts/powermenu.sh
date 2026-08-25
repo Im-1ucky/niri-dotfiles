@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-source ~/.config/theme/apps.sh
+source ~/.config/theme/app.sh
 
 lock=""
 reboot=""
