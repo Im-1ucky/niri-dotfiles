@@ -78,7 +78,6 @@ os-prober
 pamixer
 paru
 paru-debug
-pavucontrol
 pipewire-alsa
 pipewire-pulse
 plymouth
@@ -114,6 +113,7 @@ vulkan-tools
 waybar
 wget
 wireless_tools
+wiremix
 wireplumber
 wl-clipboard
 xdg-desktop-portal-hyprland

@@ -86,7 +86,7 @@
       "default": ""
     },
 
-    "on-click": "pwvucontrol || pavucontrol",
+    "on-click": "kitty wiremix",
     "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
     "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +5%",
     "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -5%"
