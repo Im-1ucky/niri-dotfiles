@@ -59,7 +59,6 @@ linux-lts
 linux-lts-headers
 luarocks
 lvm2
-mission-center
 nano
 nemo
 nemo-fileroller
