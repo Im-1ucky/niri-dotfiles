@@ -296,11 +296,11 @@ layout {
 
 // This line starts waybar, a commonly used bar for Wayland compositors.
 spawn-at-startup "waybar"
-spawn-at-startup "swaybg" "-m" "fill" "-i" "/home/luckyarch/Photos/Wallpapers/blue.jpg"
 prefer-no-csd
 spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "color-scheme" "prefer-dark"
 spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "gtk-theme" "Adwaita-dark"
-spawn-at-startup "sh" "-c" "/home/luckyarch/.config/scripts/run.sh"
+spawn-sh-at-startup "$HOME/.config/theme/restore-theme.sh"
+spawn-sh-at-startup "$HOME/.config/scripts/run.sh"
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
@@ -405,8 +405,8 @@ binds {
     Mod+R { spawn "rofi" "-show" "drun"; }
     Mod+D { spawn "nemo"; }
     Mod+T { toggle-window-floating; }
-    Mod+V { spawn "/home/luckyarch/.local/bin/cliphist-rofi"; }
-    Mod+P { spawn "/home/luckyarch/.config/scripts/powermenu.sh"; }
+    Mod+V { spawn-sh "$HOME/.local/bin/cliphist-rofi"; }
+    Mod+P { spawn-sh "$HOME/.config/scripts/powermenu.sh"; }
     Mod+O repeat=false { toggle-overview; }
     Mod+A { spawn "kitty" "--hold" "-e" "anifetch" "example.mp4"; }
     Mod+B { spawn "zen-browser"; }
@@ -416,7 +416,7 @@ binds {
               "-o" "font_size=40" \
               "termdown" "--alt-format" "--font" "slant";
     }
-    Mod+Shift+T { spawn "/home/luckyarch/.config/theme/theme-menu.sh"; }
+    Mod+Shift+T { spawn-sh "$HOME/.config/theme/theme-menu.sh"; }
 
     // Focus
     Mod+Left  { focus-column-left; }
@@ -496,7 +496,7 @@ binds {
     Mod+Shift+KP_Subtract { set-window-height "-10%"; }
     Mod+Shift+KP_Multiply { set-window-height "+10%"; }
     Mod+Ctrl+R { reset-window-height; }
-    Mod+Shift+R { spawn "/home/luckyarch/.config/scripts/reload-ui.sh"; }
+    Mod+Shift+R { spawn-sh "$HOME/.config/scripts/reload-ui.sh"; }
 
     // Floating
     Mod+Shift+V { switch-focus-between-floating-and-tiling; }
@@ -512,7 +512,8 @@ binds {
     // Screenshots
     Mod+Print { spawn "sh" "-c" "grim - | wl-copy"; }
     Mod+Shift+Print { spawn "sh" "-c" "grim -g \"$(slurp)\" - | wl-copy"; }
-    Mod+Ctrl+Print { spawn "sh" "-c" "FILE=/home/luckyarch/Photos/Screenshots/Screenshot-$(date +%F-%H%M%S).png && grim -g \"$(slurp)\" \"$FILE\" && wl-copy < \"$FILE\""; }
+    Mod+Ctrl+Print { spawn-sh "FILE=\"$HOME/Photos/Screenshots/Screenshot-$(date +%F-%H%M%S).png\"; grim -g \"$(slurp)\" \"$FILE\"; wl-copy < \"$FILE\""; }
+
 
     // Audio
     XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+ -l 1.0"; }
@@ -534,4 +535,4 @@ binds {
     Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
     Ctrl+Alt+Delete { quit skip-confirmation=true; }
 }
-include "/home/luckyarch/.config/theme/generated/niri.kdl"
+include "generated-theme.kdl"

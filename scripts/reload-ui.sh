@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+source "$HOME/.config/theme/colors.sh"
 # Remember Caffeine state before reload.
 # Caffeine OFF = swayidle running
 # Caffeine ON  = swayidle not running
@@ -10,7 +11,7 @@ else
 fi
 
 # Regenerate theme files
-~/.config/theme/generate.sh
+"$HOME/.config/theme/generate.sh"
 
 echo "Theme reloaded at $(date)" >>/tmp/reload-test.log
 
@@ -32,13 +33,11 @@ kitty @ load-config 2>/dev/null
 # If Caffeine was OFF, restart swayidle.
 # If Caffeine was ON, leave swayidle stopped.
 if [ "$CAFFEINE_WAS_ON" = false ]; then
-  ~/.config/scripts/run.sh >/dev/null 2>&1 &
+  "$HOME/.config/scripts/run.sh" >/dev/null 2>&1 &
 fi
 
 # Relaunch wallpaper
-source ~/.config/theme/colors.sh
 swaybg -i "$WALLPAPER" -m fill >/dev/null 2>&1 &
-
 # Restart persistent clipboard
 systemctl --user restart cliphist
 

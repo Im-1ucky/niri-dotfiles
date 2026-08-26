@@ -1,4 +1,9 @@
 PRIMARY="#006d5b"
+INACTIVE="#353543"
+FOREGROUND="#cdd6f4"
+RED="#f38ba8"
+
 WALLPAPER="$THEME_DIR/wallpaper.png"
+
 NVIM_THEME="gruvbox"
-KITTY_THEME="groot.conf"
+KITTY_THEME="kitty.conf"

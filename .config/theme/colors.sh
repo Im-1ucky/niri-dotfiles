@@ -7,7 +7,7 @@
 # - Rofi power menu: border + selected icon
 # - Niri: active window focus ring
 # - Hyprland: active window border
-PRIMARY="#006d5b"
+PRIMARY="#2563A8"
 
 # Inactive/unfocused color:
 # - Niri: inactive monitor focus ring
@@ -25,4 +25,4 @@ FOREGROUND="#cdd6f4"
 RED="#f38ba8"
 
 # Wallpaper
-WALLPAPER="/home/luckyarch/.config/theme/themes/groot/wallpaper.png"
+WALLPAPER="$HOME/.config/theme/themes/blue/wallpaper.jpg"

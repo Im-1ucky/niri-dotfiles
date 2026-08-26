@@ -1,5 +1,4 @@
-@import "/home/luckyarch/.config/theme/generated/rofi.rasi"
-
+@import "generated-theme.rasi"
 /*****----- Configuration -----*****/
 configuration {
     modi:                       "drun,run,filebrowser,window";

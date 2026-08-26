@@ -11,7 +11,7 @@
   "gtk-layer-shell": true,
 
   //LOAD MODULES
-  "include": ["/home/luckyarch/.config/waybar/modules.json"],
+  "include": ["modules.json"],
 
   "modules-left": [
     "cpu",

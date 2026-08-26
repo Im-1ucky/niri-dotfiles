@@ -3,8 +3,7 @@ configuration {
     font: "JetBrainsMono Nerd Font 24";
 }
 
-@import "/home/luckyarch/.config/theme/generated/powermenu.rasi"
-
+@import "generated-powermenu.rasi"
 window {
     width: 510px;
     height: 110px;
