@@ -6,7 +6,7 @@ if [[ ! -f "$CURRENT_THEME" ]]; then
   exit 0
 fi
 
-THEME=$(cat "$CURRENT_THEME")
+THEME=$(<"$CURRENT_THEME")
 
 if [[ -z "$THEME" ]]; then
   exit 0
@@ -14,3 +14,4 @@ fi
 
 "$HOME/.config/theme/apply-theme.sh" "$THEME"
 "$HOME/.config/theme/generate.sh"
+"$HOME/.config/scripts/reload-ui.sh"
