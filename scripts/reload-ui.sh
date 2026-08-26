@@ -36,7 +36,8 @@ if [ "$CAFFEINE_WAS_ON" = false ]; then
 fi
 
 # Relaunch wallpaper
-swaybg -i "/home/luckyarch/Photos/Wallpapers/blue.jpg" -m fill >/dev/null 2>&1 &
+source ~/.config/theme/colors.sh
+swaybg -i "$WALLPAPER" -m fill >/dev/null 2>&1 &
 
 # Restart persistent clipboard
 systemctl --user restart cliphist

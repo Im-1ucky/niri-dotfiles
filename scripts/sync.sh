@@ -18,7 +18,10 @@ cp -r ~/.config/ghostty "$REPO/.config/"
 cp -r ~/.config/gtk-3.0 "$REPO/.config/"
 cp -r ~/.config/gtk-4.0 "$REPO/.config/"
 cp -r ~/.config/hypr "$REPO/.config/"
-cp -r ~/.config/kitty "$REPO/.config/"
+rm -rf "$REPO/.config/kitty"
+mkdir -p "$REPO/.config/kitty"
+cp -r ~/.config/kitty/. "$REPO/.config/kitty/"
+rm -f "$REPO/.config/kitty/current-theme.conf"
 cp -r ~/.config/Kvantum "$REPO/.config/"
 cp -r ~/.config/niri "$REPO/.config/"
 cp -r ~/.config/nvim "$REPO/.config/"
@@ -29,7 +32,26 @@ cp -r ~/.config/swaync "$REPO/.config/"
 cp -r ~/.config/waybar "$REPO/.config/"
 cp -r ~/.config/yazi "$REPO/.config/"
 
+# -----------------------
+# Theme system
+# -----------------------
+
+rm -rf "$REPO/.config/theme"
+mkdir -p "$REPO/.config/theme"
+
+cp ~/.config/theme/colors.sh "$REPO/.config/theme/"
+cp ~/.config/theme/generate.sh "$REPO/.config/theme/"
+cp ~/.config/theme/switch.sh "$REPO/.config/theme/"
+cp ~/.config/theme/theme-menu.sh "$REPO/.config/theme/"
+
+cp -r ~/.config/theme/themes "$REPO/.config/theme/"
+
+# -----------------------
+# Scripts
+# -----------------------
+
 mkdir -p "$REPO/scripts"
+
 find ~/.config/scripts -maxdepth 1 -type f -name "*.sh" ! -name "sync.sh" \
   -exec cp {} "$REPO/scripts/" \;
 

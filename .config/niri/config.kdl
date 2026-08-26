@@ -296,7 +296,7 @@ layout {
 
 // This line starts waybar, a commonly used bar for Wayland compositors.
 spawn-at-startup "waybar"
-spawn-at-startup "swaybg" "-m" "fill" "-i" "/home/luckyarch/Photos/Wallpapers/root.png"
+spawn-at-startup "swaybg" "-m" "fill" "-i" "/home/luckyarch/Photos/Wallpapers/blue.jpg"
 prefer-no-csd
 spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "color-scheme" "prefer-dark"
 spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "gtk-theme" "Adwaita-dark"
@@ -416,6 +416,7 @@ binds {
               "-o" "font_size=40" \
               "termdown" "--alt-format" "--font" "slant";
     }
+    Mod+Shift+T { spawn "/home/luckyarch/.config/theme/theme-menu.sh"; }
 
     // Focus
     Mod+Left  { focus-column-left; }
