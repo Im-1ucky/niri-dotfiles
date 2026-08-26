@@ -1,4 +1,4 @@
-# LinuxDE
+# LuckyDE
 
 > My personal **Arch Linux desktop environment** and dotfiles — built around **Niri + Hyprland**, with a terminal-first workflow and a minimal, cohesive UI.
 
@@ -6,9 +6,9 @@
 
 ## ✨ Overview
 
-LinuxDE is my personal Linux desktop configuration, combining two Wayland compositors with a collection of tools for everyday use, development, system management, and customization.
+LuckyDE is my personal Arch Linux desktop configuration, combining two Wayland compositors with a collection of tools for everyday use, development, system management, and customization.
 
-The overall design uses a **dark brown / charcoal palette**, teal accents, and pastel terminal colors.
+The setup is built around **Niri** as the primary compositor and **Hyprland** as an alternative compositor
 
 ---
 
@@ -17,24 +17,165 @@ The overall design uses a **dark brown / charcoal palette**, teal accents, and p
 | | |
 |:---:|:---:|
 | ![Screenshot 1](screenshots/1.png) | ![Screenshot 2](screenshots/2.png) |
-|**System & Terminal Information** — Customized Fastfetch providing system information alongside a customized terminal, showcasing the terminal-focused environment.| **Neovim / LazyVim** — The development setup featuring Neovim with LazyVim, along with the bash Kitty terminal. |
+| **System & Terminal Information** — Customized Fastfetch alongside the terminal-focused environment. | **Neovim / LazyVim** — Development setup featuring Neovim with LazyVim and Kitty. |
 | ![Screenshot 3](screenshots/3.png) | ![Screenshot 4](screenshots/4.png) |
-| **Rofi & SwayNC** — Rofi provides the application launcher, while SwayNC handles notifications and quick system controls. | **Waybar & Powermenu** — The customized Waybar provides system information and controls, including the Rofi-based powermenu for session actions. |
+| **Rofi & SwayNC** — Rofi provides the application launcher while SwayNC handles notifications and quick system controls. | **Waybar & Powermenu** — Customized Waybar with system information and controls, including the Rofi-based powermenu. |
+
+---
+
+## 🎨 Theme System
+
+LuckyDE includes a centralized theme system for changing the appearance of the desktop from a single theme selector.
+
+Themes control:
+
+- Primary accent color
+- Inactive/focus colors
+- Foreground/text colors
+- Critical/urgent colors
+- Wallpaper
+- Kitty theme
+- Neovim colorscheme
+- Waybar styling
+- SwayNC styling
+- Rofi styling
+
+Themes are stored in:
+
+```text
+~/.config/theme/themes/
+```
+
+Current themes:
+
+```text
+themes/
+├── blue/
+└── groot/
+```
+
+Each theme contains its own colors, configuration, and wallpaper.
+
+### Switching themes
+
+Switch directly from the terminal:
+
+```bash
+~/.config/theme/switch.sh blue
+```
+
+or:
+
+```bash
+~/.config/theme/switch.sh groot
+```
+
+The theme system updates the relevant configuration and reloads the UI.
+
+### Theme selector
+
+Launch the Rofi theme selector using the Niri keybinding:
+
+**`Mod + Shift + T`**
+
+Or change it directly from the terminal:
+
+```bash
+~/.config/theme/switch.sh blue
+```
+
+---
+
+## 🔄 Theme Architecture
+
+The theme system uses the theme files as the source of truth and generates the configuration required by the different applications.
+
+```text
+┌────────────────────────────┐
+│       Theme Directory      │
+│                            │
+│ themes/blue/theme.sh       │
+│ themes/groot/theme.sh      │
+└─────────────┬──────────────┘
+              │
+              │ switch.sh
+              ▼
+┌────────────────────────────┐
+│      apply-theme.sh        │
+│                            │
+│ • Colors                   │
+│ • Wallpaper                │
+│ • Kitty                    │
+│ • Neovim                   │
+└─────────────┬──────────────┘
+              │
+              ▼
+┌────────────────────────────┐
+│       generate.sh          │
+│                            │
+│ Generates runtime configs  │
+└─────────────┬──────────────┘
+              │
+       ┌──────┼──────┬────────┐
+       ▼      ▼      ▼        ▼
+    Waybar  SwayNC  Rofi     Niri
+```
+
+Generated configuration files are runtime files and are recreated automatically.
+
+---
+
+## 💾 Remembered Theme
+
+The selected theme is restored automatically when Niri starts.
+
+```text
+Niri starts
+     │
+     ▼
+restore-theme.sh
+     │
+     ▼
+current-theme
+     │
+     ▼
+apply-theme.sh
+     │
+     ▼
+generate.sh
+```
+
+This allows the desktop to return to the same theme after reboot.
+
+---
 
 ## 🔧 Script Management
 
-All runtime shell scripts are centralized in:
+Reusable runtime shell scripts are centralized in:
 
 ```text
 ~/.config/scripts/
 ```
 
-Instead of keeping scripts inside individual application directories such as Waybar, Swaylock, or Rofi, they are maintained in one location.
+These include scripts for:
 
-The repository sync script is:
+- Audio
+- Brightness
+- Caffeine mode
+- Screen locking
+- Power management
+- System synchronization
+
+The repository synchronization script is:
 
 ```bash
 ~/niri-dotfiles/scripts/sync.sh
+```
+
+Run it from the repository:
+
+```bash
+./scripts/sync.sh
 ```
 
 ### Sync workflow
@@ -61,29 +202,57 @@ The repository sync script is:
            ▼
        git push
 ```
+
+The sync script also updates the package lists.
+
+Runtime-generated files and machine-specific theme state are excluded from the repository.
+
 ---
 
 ## 📦 Package Lists
 
-The repository keeps separate package lists for official Arch packages and AUR packages.
+The repository maintains package lists for several package sources.
 
 | File | Description |
 |:---|:---|
 | `pkglist.txt` | Official Arch packages |
 | `aurlist.txt` | AUR packages |
+| `flatpaklist.txt` | Flatpak applications |
+| `npmlist.txt` | Global npm packages |
 
-Regenerate them with:
+These lists are automatically generated by:
+
+```bash
+./scripts/sync.sh
+```
+
+### Official Arch packages
 
 ```bash
 pacman -Qqe > pkglist.txt
+```
+
+### AUR packages
+
+```bash
 pacman -Qqem > aurlist.txt
 ```
+
+### Flatpak applications
+
+```bash
+flatpak list --app --columns=application | sort > flatpaklist.txt
+```
+
+### Global npm packages
+
+The global npm package list is generated automatically by `sync.sh`.
 
 ---
 
 ## 🚀 Installation
 
-> These dotfiles are primarily built for my personal Arch Linux setup. Review the configuration before applying it to another system, especially hardware-specific settings.
+The repository includes `install.sh` to simplify setting up the environment on another Arch Linux machine.
 
 ### 1. Clone the repository
 
@@ -92,76 +261,78 @@ git clone https://github.com/Im-1ucky/niri-dotfiles.git
 cd niri-dotfiles
 ```
 
-### 2. Back up your existing configuration
+### 2. Install the configuration
 
-Before copying anything, create a backup of your current configuration:
-
-```bash
-cp -r ~/.config ~/.config.backup
-```
-
-### 3. Copy the configurations
-
-Copy the repository's `.config` contents into your home configuration directory:
+Run:
 
 ```bash
-cp -r .config/* ~/.config/
+./install.sh
 ```
 
-### 4. Install the scripts
+The installer:
 
-All runtime scripts are stored in the repository's `scripts/` directory.
+- Backs up existing configuration
+- Installs dotfiles and scripts
+- Sets up the theme system
+- Generates required runtime files
 
-Copy them to the central scripts directory:
+Packages are **not installed by default**.
+
+### 3. Install packages
+
+To install the package lists as well:
 
 ```bash
-mkdir -p ~/.config/scripts
-cp scripts/*.sh ~/.config/scripts/
+./install.sh --packages
 ```
 
-Make them executable:
+This handles:
 
-```bash
-chmod +x ~/.config/scripts/*.sh
-```
+- Official Arch packages using `pacman`
+- AUR packages using `yay` or `paru`
+- Flatpak applications
+- Global npm packages
 
-### 5. Install the packages
+For AUR packages, the installer automatically uses `yay` if available, otherwise `paru`.
 
-The repository contains package lists for both official Arch packages and AUR packages.
+If neither is installed, AUR packages are skipped.
 
-Install the official packages:
+> Review the package lists before installing them on another system. Some packages may be unnecessary or incompatible with different hardware or workflows.
 
-```bash
-sudo pacman -S --needed - < pkglist.txt
-```
+### 4. Restart
 
-Install the AUR packages using your preferred AUR helper, for example:
-
-```bash
-paru -S --needed - < aurlist.txt
-```
-
-> Review `pkglist.txt` and `aurlist.txt` before installing. Some packages may be unnecessary or incompatible with another system.
-### 6. Restart
-
-Restart your system to ensure all configurations and services are loaded correctly:
+After installation:
 
 ```bash
 reboot
 ```
 
-After restarting, the new desktop environment and configurations should be active.
+Niri will automatically restore the selected theme on startup.
+
+---
+
+## 🛡️ Configuration Backups
+
+Before installing, `install.sh` creates a timestamped backup:
+
+```text
+~/.config-backup-YYYYMMDD-HHMMSS/
+```
+
+Existing configuration directories are moved into the backup before the repository configuration is installed.
+
+---
 
 ## 🧩 Components
 
 | Component | Purpose |
 |:--|:--|
-| **Niri** | Scrollable-tiling Wayland compositor |
-| **Hyprland** | Dynamic-tiling Wayland compositor |
+| **Niri** | Primary scrollable-tiling Wayland compositor |
+| **Hyprland** | Alternative dynamic-tiling Wayland compositor |
 | **Waybar** | System status bar |
 | **SwayNC** | Notifications and quick controls |
 | **Kitty** | Terminal emulator |
-| **Rofi** | Application launcher and power menu |
+| **Rofi** | Application launcher, theme selector, and power menu |
 | **Neovim / LazyVim** | Code editor |
 | **Yazi** | Terminal file manager |
 | **Swaylock** | Screen locking |
@@ -173,13 +344,39 @@ After restarting, the new desktop environment and configurations should be activ
 
 ---
 
-## 🖥️ Desktop Philosophy
+## ⌨️ Desktop Philosophy
 
-It is built around a few simple ideas:
+The setup is built around a few simple ideas:
 
 - **Keyboard first** — minimize unnecessary mouse interaction.
 - **Terminal first** — prefer powerful CLI tools where practical.
 - **Minimal UI** — keep the desktop clean and distraction-free.
 - **Centralized scripts** — keep reusable runtime scripts in one place.
+- **Centralized themes** — control the visual appearance from a single theme system.
 - **Reproducible configuration** — keep the environment version-controlled.
+- **Portable configuration** — avoid hardcoded usernames and machine-specific paths wherever possible.
 - **Flexible compositor setup** — maintain configurations for both Niri and Hyprland.
+
+---
+
+## ⚠️ Notes
+
+This is primarily my personal Arch Linux environment, so some components may require additional setup depending on the machine.
+
+In particular:
+
+- Hardware-specific settings may need adjustment.
+- Niri is the primary compositor configuration, Hyprland is maintained as an alternative.
+- GRUB and Plymouth themes are included separately and have their own installation procedures.
+- Package lists should be reviewed before installing on another machine.
+- The configuration assumes a Wayland-based environment.
+- Generated theme files and runtime state are intentionally excluded from version control.
+- Some Hyprland settings may still require adjustment for a different machine.
+
+---
+
+## 📜 License
+
+This repository contains my personal desktop configuration and customizations.
+
+Individual projects, themes, fonts, and assets included in the repository may have their own licenses. Please refer to their respective license files before redistributing them.
