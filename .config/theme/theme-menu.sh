@@ -1,7 +1,15 @@
 #!/usr/bin/env bash
 
-THEME=$(printf "blue\ngroot" | rofi -dmenu -p "Theme")
+THEMES_DIR="$HOME/.config/theme/themes"
+
+THEME=$(find "$THEMES_DIR" \
+  -mindepth 1 \
+  -maxdepth 1 \
+  -type d \
+  -printf '%f\n' |
+  sort |
+  rofi -dmenu -p "Theme")
 
 [[ -z "$THEME" ]] && exit 0
 
-~/.config/theme/switch.sh "$THEME"
+"$HOME/.config/theme/switch.sh" "$THEME"
