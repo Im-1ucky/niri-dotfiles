@@ -52,7 +52,7 @@
     "format": "󰃠 {}%",
     "exec": "brightnessctl | grep -o '[0-9]\\{1,3\\}%'",
     "tooltip-format": "{}%",
-    "on-click": "~/.config/scripts/brightness.sh",
+    "on-click": "bash -c '$HOME/.config/scripts/brightness.sh'",
     "on-scroll-up": "brightnessctl set +5%",
     "on-scroll-down": "brightnessctl set 5%-"
   },
