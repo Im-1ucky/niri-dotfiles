@@ -25,6 +25,8 @@ The setup is built around **Niri** as the primary compositor and **Hyprland** as
 
 ## 🎨 Theme System
 
+![Theme Switch Demo](screenshots/video1.gif)
+
 LuckyDE includes a centralized theme system for changing the appearance of the desktop from a single theme selector.
 
 Themes control:
