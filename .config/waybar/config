@@ -28,7 +28,7 @@
   "modules-right": [
     "clock",
     "custom/battery",
-    "network",
+    "custom/network",
     "custom/caffeine",
     "pulseaudio",
     "custom/brightness",

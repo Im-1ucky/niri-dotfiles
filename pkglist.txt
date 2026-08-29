@@ -6,6 +6,7 @@ android-tools
 baobab
 base
 base-devel
+bat
 bibata-cursor-theme-bin
 bleachbit
 blender
@@ -27,6 +28,7 @@ figlet
 flatpak
 flutter-bin
 fzf
+gdu
 git
 github-cli
 gnome-keyring
@@ -47,6 +49,7 @@ jetbrains-toolbox
 jq
 kitty
 kotlin
+ksnip
 ktlint
 lazygit
 less
@@ -57,8 +60,10 @@ linux-firmware
 linux-headers
 linux-lts
 linux-lts-headers
+lsof
 luarocks
 lvm2
+mpv
 nano
 nemo
 nemo-fileroller
@@ -71,9 +76,11 @@ npm
 nvidia-open-dkms
 nvme-cli
 nwg-look
+obs-studio
 obsidian
 opencode-bin
 os-prober
+pacman-contrib
 pamixer
 paru
 paru-debug
@@ -90,6 +97,7 @@ qt6-wayland
 reflector
 ripgrep
 rofi
+rtorrent
 slurp
 smartmontools
 sof-firmware
@@ -115,6 +123,7 @@ wireless_tools
 wiremix
 wireplumber
 wl-clipboard
+xdg-desktop-portal-gnome
 xdg-desktop-portal-hyprland
 xdg-utils
 xorg-server
@@ -128,3 +137,7 @@ zed
 zen-browser-bin
 zoxide
 zram-generator
+zsh
+zsh-autosuggestions
+zsh-history-substring-search
+zsh-syntax-highlighting

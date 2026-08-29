@@ -123,3 +123,4 @@ else
 fi
 
 echo "Package lists updated."
+echo "Synchronization completed."

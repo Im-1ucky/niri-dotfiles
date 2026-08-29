@@ -35,7 +35,7 @@
   "custom/temp": {
     "interval": 5,
     "format": " {}°C",
-    "exec": "~/.config/scripts/get_temp.sh",
+    "exec": "~/.config/waybar/scripts/get_temp.sh",
     "return-type": "json",
     "tooltip": true,
   },
@@ -43,7 +43,7 @@
   "custom/power": {
     "format": "",
     "tooltip": false,
-    "on-click": "~/.config/scripts/powermenu.sh"
+    "on-click": "~/.config/waybar/scripts/powermenu.sh"
   },
 
   "custom/brightness": {
@@ -52,23 +52,17 @@
     "format": "󰃠 {}%",
     "exec": "brightnessctl | grep -o '[0-9]\\{1,3\\}%'",
     "tooltip-format": "{}%",
-    "on-click": "bash -c '$HOME/.config/scripts/brightness.sh'",
+    "on-click": "bash -c '$HOME/.config/waybar/scripts/brightness.sh'",
     "on-scroll-up": "brightnessctl set +5%",
     "on-scroll-down": "brightnessctl set 5%-"
   },
 
-  "network": {
-    "interface": "wlan0",
+  "custom/network": {
+    "exec": "~/.config/waybar/scripts/network-status.sh",
     "interval": 2,
-    "format-ethernet": "󰈁  {ipaddr}",
-    "tooltip-format-ethernet": "Ethernet: {ipaddr}\nDn ↓ {bandwidthDownBytes}/s Up ↑ {bandwidthUpBytes}/s",
-    "format-wifi": "  {essid}",
-    "tooltip-format-wifi": "WiFi: {essid}\nSignal: {signalStrength}%\nDn ↓ {bandwidthDownBytes}/s Up ↑ {bandwidthUpBytes}/s",
-    "format-disconnected": "󰖪",
-    "format-disconnected-tooltip": "Network Disconnected",
     "tooltip": true,
     "on-click": "kitty nmtui",
-    "max-length": 10
+    "max-length": 20
   },
 
   "pulseaudio": {
@@ -93,20 +87,20 @@
   },
 
   "custom/caffeine": {
-    "exec": "~/.config/scripts/caffeine.sh",
+    "exec": "~/.config/waybar/scripts/caffeine.sh",
     "interval": 2,
     "return-type": "json",
     "format": "{}",
     "tooltip": true,
-    "on-click": "~/.config/scripts/caffeine.sh toggle"
+    "on-click": "~/.config/waybar/scripts/caffeine.sh toggle"
   },
 
   "custom/battery": {
     "interval": 2,
-    "exec": "~/.config/scripts/battery.sh",
+    "exec": "~/.config/waybar/scripts/battery.sh",
     "return-type": "json",
     "tooltip": true,
-    "on-click-right": "~/.config/scripts/battery.sh --switch"
+    "on-click-right": "~/.config/waybar/scripts/battery.sh --switch"
   },
 
   "clock": {
