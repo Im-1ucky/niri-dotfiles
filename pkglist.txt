@@ -17,8 +17,11 @@ brightnessctl
 btop
 chafa
 cliphist
+cups
 dkms
 dnsmasq
+docker
+docker-compose
 efibootmgr
 eza
 fastfetch
@@ -63,6 +66,7 @@ linux-lts-headers
 lsof
 luarocks
 lvm2
+mesa-utils
 mpv
 nano
 nemo
@@ -74,10 +78,12 @@ niri
 nodejs
 npm
 nvidia-open-dkms
+nvidia-prime
 nvme-cli
 nwg-look
 obs-studio
 obsidian
+ollama
 opencode-bin
 os-prober
 pacman-contrib
@@ -87,6 +93,7 @@ paru-debug
 pipewire-alsa
 pipewire-pulse
 plymouth
+polkit-gnome
 polkit-kde-agent
 postgresql
 power-profiles-daemon
@@ -109,6 +116,7 @@ swaylock-effects
 swaync
 termdown
 terminus-font
+tmux
 tree
 tree-sitter-cli
 ttf-nerd-fonts-symbols-mono
@@ -128,6 +136,7 @@ xdg-desktop-portal-hyprland
 xdg-utils
 xorg-server
 xorg-xeyes
+xorg-xhost
 xorg-xinit
 xorg-xwininfo
 xwayland-satellite

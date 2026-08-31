@@ -7,8 +7,13 @@ ksnip = [
     { run = 'ksnip "$@"', orphan = true, desc = "Open in Ksnip" }
 ]
 
+mpv = [
+    { run = 'mpv "$@"', orphan = true, desc = "Open in mpv" }
+]
+
 [open]
 rules = [
     { mime = "image/*", use = "ksnip" },
+    { mime = "video/*", use = "mpv" },
     { mime = "text/*", use = "edit" },
 ]

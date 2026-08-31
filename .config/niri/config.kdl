@@ -406,7 +406,7 @@ binds {
     Mod+D { spawn "nemo"; }
     Mod+T { toggle-window-floating; }
     Mod+V { spawn-sh "$HOME/.local/bin/cliphist-rofi"; }
-    Mod+P { spawn-sh "$HOME/.config/scripts/powermenu.sh"; }
+    Mod+P { spawn-sh "$HOME/.config/waybar/scripts/powermenu.sh"; }
     Mod+O repeat=false { toggle-overview; }
     Mod+A { spawn "kitty" "--hold" "-e" "anifetch" "example.mp4"; }
     Mod+B { spawn "zen-browser"; }
