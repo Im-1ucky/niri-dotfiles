@@ -37,7 +37,7 @@
     "format": " {}°C",
     "exec": "~/.config/waybar/scripts/get_temp.sh",
     "return-type": "json",
-    "tooltip": true,
+    "tooltip": true
   },
 
   "custom/power": {
@@ -73,9 +73,10 @@
     "tooltip-format": "Volume: {volume}%\nDevice: {desc}",
 
     "format-icons": {
-      "bluetooth": "󰂯",
+      "alsa_output.usb-JieLi_Technology_USB_Audio_2023.06.20-00.analog-stereo": "",
       "headphone": "",
       "headset": "",
+      "bluetooth": "󰂯",
       "speaker": "",
       "default": ""
     },

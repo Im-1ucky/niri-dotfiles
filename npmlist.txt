@@ -1,1 +1,3 @@
 omniroute
+@playwright/mcp
+vscode-langservers-extracted

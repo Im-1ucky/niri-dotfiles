@@ -1,3 +1,4 @@
+7zip
 acpi
 alsa-firmware
 alsa-utils
@@ -22,6 +23,7 @@ dkms
 dnsmasq
 docker
 docker-compose
+dosfstools
 efibootmgr
 eza
 fastfetch
@@ -66,6 +68,7 @@ linux-lts-headers
 lsof
 luarocks
 lvm2
+lynx
 mesa-utils
 mpv
 nano
@@ -104,6 +107,7 @@ qt6-wayland
 reflector
 ripgrep
 rofi
+rsync
 rtorrent
 slurp
 smartmontools
@@ -114,6 +118,7 @@ swaybg
 swayidle
 swaylock-effects
 swaync
+tcpdump
 termdown
 terminus-font
 tmux
@@ -121,6 +126,7 @@ tree
 tree-sitter-cli
 ttf-nerd-fonts-symbols-mono
 unzip
+uv
 uwsm
 vivid
 vulkan-intel

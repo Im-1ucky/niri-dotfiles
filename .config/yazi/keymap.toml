@@ -1,0 +1,4 @@
+[[manager.prepend_keymap]]
+on   = ["X"]
+run  = 'shell -- 7z x "$@"'
+desc = "Extract archive here"
